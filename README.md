@@ -1,6 +1,6 @@
-# SIA Task
+# Task
 
-Foobar is a Task for SIA Company.
+Foobar is a Task for  Company.
 
 ## Details
 

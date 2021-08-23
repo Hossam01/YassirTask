@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -16,8 +17,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(ApplicationComponent::class)
 object AppModule {
+    
     @Provides
     fun provideBaseUrl() = Constants.BASE_URL
+
 
     @Singleton
     @Provides

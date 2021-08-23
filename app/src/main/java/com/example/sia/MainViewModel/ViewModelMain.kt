@@ -14,7 +14,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class ViewModelMain @ViewModelInject constructor(
+class ViewModelMain @ViewModelInject
+constructor(
     private val mainRepository: MainRepository
 ): ViewModel(){
 

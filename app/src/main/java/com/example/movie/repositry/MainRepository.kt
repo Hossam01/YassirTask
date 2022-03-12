@@ -1,6 +1,6 @@
-package com.example.sia.repositry
+package com.example.movie.repositry
 
-import com.example.sia.api.ApiService
+import com.example.movie.api.ApiService
 import javax.inject.Inject
 
 class MainRepository @Inject constructor(

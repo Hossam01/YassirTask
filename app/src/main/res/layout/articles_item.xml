@@ -79,7 +79,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/tvDescription"
-                tools:text="80cal" />
+                tools:text="80cal"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -91,6 +92,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvDescription"
                 android:src="@drawable/images"
+                android:visibility="gone"
                />
 
             <ImageView
@@ -98,10 +100,10 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="60dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription"
 
                 android:src="@drawable/calender"
 
@@ -112,10 +114,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="1dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView7"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription"
 
                 tools:text="4.5 rating" />
         </androidx.constraintlayout.widget.ConstraintLayout>

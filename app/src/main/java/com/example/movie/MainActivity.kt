@@ -1,4 +1,4 @@
-package com.example.sia
+package com.example.movie
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -8,10 +8,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.sia.MainViewModel.ViewModelMain
-import com.example.sia.adapter.ArticlesAdapter
-import com.example.sia.others.Status
-import com.google.android.material.internal.ContextUtils
+import com.example.movie.MainViewModel.ViewModelMain
+import com.example.movie.adapter.ArticlesAdapter
+import com.example.movie.models.ResultsItem
+import com.example.movie.others.Status
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.flow.collect
@@ -36,16 +36,9 @@ class MainActivity : AppCompatActivity() {
                         Status.OK -> {
                             load.visibility = View.GONE
                             rvArticleslist.visibility = View.VISIBLE
-                            it.results.let { res ->
-                                if (res?.status == "OK") {
-                                    res.results?.let { it1 -> adapter.submitList(it1) }
-                                } else {
-                                    Toast.makeText(
-                                        this@MainActivity,
-                                        "Status = false",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
+                            it.results.let { res -> res?.results?.let { it1 -> adapter.submitList(
+                                it1 as List<ResultsItem>
+                            ) }
                             }
                         }
                         Status.LOADING -> {

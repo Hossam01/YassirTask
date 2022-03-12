@@ -1,4 +1,4 @@
-package com.example.sia
+package com.example.movie
 
 import android.os.Build
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.transition.TransitionInflater
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.sia.models.Result
+import com.example.movie.models.ResultsItem
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import kotlinx.android.synthetic.main.activity_details.*
@@ -20,17 +20,14 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_details)
         setSupportActionBar(toolbar)
         val be = intent.extras
-        var list = be!!.getSerializable("detail") as Result?
-        if (list!!.media.size>0) {
-            Glide.with(this).load(list?.media?.get(0)?.mediametadata?.get(2)?.url).into(image)
-        }
+        var list = be!!.getSerializable("detail") as ResultsItem?
+        Glide.with(this).load("http://image.tmdb.org/t/p/w185"+list?.poster_path).into(image)
         window.sharedElementEnterTransition = TransitionInflater.from(this).inflateTransition(R.transition.your_transition)
         image.transitionName="thumbnailTransition"
         title=list!!.title.toString()
         titleColor=R.color.white
-        for (txt in list.des_facet) {
-            TVtext.append(txt.toString())
-        }
+        TVtext.append(list.overview)
+
         app_bar.addOnOffsetChangedListener(object : OnOffsetChangedListener {
             var isShow = false
             var scrollRange = -1

@@ -1,4 +1,4 @@
-package com.example.sia.adapter
+package com.example.movie.adapter
 
 import android.app.Activity
 import android.content.Intent
@@ -15,10 +15,9 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.sia.DetailsActivity
-import com.example.sia.R
-import com.example.sia.models.Result
-import kotlinx.android.synthetic.main.activity_details.view.*
+import com.example.movie.DetailsActivity
+import com.example.movie.R
+import com.example.movie.models.ResultsItem
 import kotlinx.android.synthetic.main.articles_item.view.*
 
 
@@ -26,19 +25,19 @@ class ArticlesAdapter: RecyclerView.Adapter<ArticlesAdapter.ArticlesViewHolder>(
 
     inner class ArticlesViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
 
-    private val diffCallback = object : DiffUtil.ItemCallback<Result>(){
-        override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
+    private val diffCallback = object : DiffUtil.ItemCallback<ResultsItem>(){
+        override fun areItemsTheSame(oldItem: ResultsItem, newItem: ResultsItem): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
+        override fun areContentsTheSame(oldItem: ResultsItem, newItem: ResultsItem): Boolean {
             return oldItem.hashCode() == newItem.hashCode()
         }
     }
 
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    fun submitList(list: List<Result>) = differ.submitList(list)
+    fun submitList(list: List<ResultsItem>) = differ.submitList(list)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticlesViewHolder {
         return ArticlesViewHolder(
@@ -64,13 +63,10 @@ class ArticlesAdapter: RecyclerView.Adapter<ArticlesAdapter.ArticlesViewHolder>(
 
         holder.itemView.apply {
             tvTitle.text = "${item.title.toString()}"
-            tvDescription.text="${item.des_facet.get(0)}"
-            if (item.media.size>0) {
-                    Glide.with(this).load(item.media.get(0).mediametadata.get(2).url).into(ivFood);
-            }
+            tvDescription.text="${item.overview}"
+            Glide.with(this).load("http://image.tmdb.org/t/p/w185/"+item.poster_path).into(ivFood);
 
-            tvDate.text="${item.published_date.toString()}"
-            tvAuthor.text="${item.byline.toString()}"
+            tvDate.text="${item.release_date.toString()}"
             cardView.setOnClickListener {
                 val detail = Intent(context, DetailsActivity::class.java)
                 val be = Bundle()

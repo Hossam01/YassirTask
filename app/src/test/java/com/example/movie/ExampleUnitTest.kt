@@ -1,17 +1,8 @@
-package com.example.sia
+package com.example.movie
 
-import androidx.lifecycle.viewModelScope
-import com.example.sia.api.ApiService
-import com.example.sia.models.Articles
-import com.example.sia.others.Resource
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.junit.Test
 
 import org.junit.Assert.*
-import org.junit.Before
-import retrofit2.Response
-import javax.inject.Inject
 
 /**
  * Example local unit test, which will execute on the development machine (host).

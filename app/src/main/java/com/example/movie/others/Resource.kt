@@ -1,4 +1,4 @@
-package com.example.sia.others
+package com.example.movie.others
 
 data class Resource<out T>(
     val status: Status,

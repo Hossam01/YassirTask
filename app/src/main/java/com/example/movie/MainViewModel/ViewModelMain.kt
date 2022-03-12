@@ -1,14 +1,11 @@
-package com.example.sia.MainViewModel
+package com.example.movie.MainViewModel
 
-import android.content.Context
-import android.net.ConnectivityManager
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.sia.repositry.MainRepository
-import com.example.sia.models.Articles
-import com.example.sia.others.Resource
-import com.google.android.material.internal.ContextUtils.getActivity
+import com.example.movie.models.MovieDiscoverModel
+import com.example.movie.repositry.MainRepository
+import com.example.movie.others.Resource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,7 +16,7 @@ constructor(
     private val mainRepository: MainRepository
 ): ViewModel(){
 
-    private val _res = MutableStateFlow<Resource<Articles>>(Resource.loading(null))
+    private val _res = MutableStateFlow<Resource<MovieDiscoverModel>>(Resource.loading(null))
 
 
     init {
@@ -39,7 +36,7 @@ constructor(
     }
 
     @ExperimentalCoroutinesApi
-    fun getUsers(): StateFlow<Resource<Articles>> {
+    fun getUsers(): StateFlow<Resource<MovieDiscoverModel>> {
         return _res
     }
 

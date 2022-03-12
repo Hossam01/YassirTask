@@ -1,13 +1,12 @@
-package com.example.sia.di
+package com.example.movie.di
 
-import com.example.sia.BuildConfig
-import com.example.sia.api.ApiService
-import com.example.sia.others.Constants
+import com.example.movie.BuildConfig
+import com.example.movie.api.ApiService
+import com.example.movie.others.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

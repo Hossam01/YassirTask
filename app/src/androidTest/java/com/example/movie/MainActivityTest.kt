@@ -1,4 +1,4 @@
-package com.example.sia
+package com.example.movie
 
 
 import androidx.test.espresso.Espresso.onView
